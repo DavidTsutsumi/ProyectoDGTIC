@@ -19,5 +19,14 @@ class Customers extends Component
         return view('livewire.customers');
     }
 
+    public function eliminar($id)
+    {
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+
+        session()->flash('message', '¡El cliente se eliminó correctamente!');
+
+        return back();
+    }
 
 }

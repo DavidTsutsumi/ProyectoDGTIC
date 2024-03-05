@@ -20,10 +20,19 @@
                     <td>
                         <button wire:navigate href="/customers/{{$customer->id}}" class="btn btn-primary btn-sm">Ver</button>
                         <button class="btn btn-secondary btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Borrar</button>
+                        <form action="{{ route('clientes.eliminar', $customer->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar este cliente?')">Borrar</button>
+                        </form>   
                     </td>
                 </tr>
             @endforeach
+            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+            @endif
         </tbody>
     </table>
 </div>
