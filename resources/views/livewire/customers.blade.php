@@ -29,9 +29,9 @@
                 </tr>
             @endforeach
             @if (session()->has('message'))
-                                <div class="alert alert-success">
-                                    {{ session('message') }}
-                                </div>
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
             @endif
         </tbody>
     </table>

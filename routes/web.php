@@ -3,7 +3,6 @@
 use App\Livewire\Customers;
 use App\Livewire\ViewCustomer;
 use App\Livewire\CreateCustomer;
-use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('principal');
+    return redirect()->route('customers'); 
 });
 
 Route::get('/customers/create', CreateCustomer::class)->name('create');
 Route::post('/customers/create', [CreateCustomer::class, 'store']);
-Route::get('/customers', Customers::class);
+Route::get('/customers', Customers::class)->name('customers');
 Route::get('/customers/{customer}', ViewCustomer::class);
 Route::delete('/customers/{id}', [Customers::class, 'eliminar'])->name('clientes.eliminar');
 Route::get('/customers/{customer}/edit', [CustomersController::class, 'edit'])->name('customers.edit');
 
 
-//Route::get('/agregar', [UsuarioController::class, 'create'])->name('create');
+

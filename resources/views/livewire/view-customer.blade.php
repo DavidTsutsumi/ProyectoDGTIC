@@ -24,4 +24,5 @@
           </tr>
       </tbody>
   </table>
+  <a href="{{ route('customers') }}" class="btn btn-primary">Volver a la lista de clientes</a>
 </div>

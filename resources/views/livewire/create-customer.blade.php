@@ -34,7 +34,7 @@
                   <input id="cp" wire:model="cp" type="text" class="form-control">
                   @error('cp') <span class="error text-sm">{{ $message }}</span> @enderror
               </div>
-                <button type="submit" class="btn btn-primary " onclick="return confirm('¿Estás seguro de enviar el formulario?')" >Submit</button>
+                <button type="submit" class="btn btn-primary " onclick="return confirm('¿Estás seguro de enviar el formulario?')" >Enviar</button>
 
               </form>
               @if (session()->has('message'))
@@ -42,7 +42,9 @@
                         {{ session('message') }}
                     </div>
                 @endif
-
-        </div>
+        </div> 
       </div>
+      <div class="text-center">
+        <a href="{{ route('customers') }}" class="btn btn-primary">Volver a la lista de clientes</a>
+    </div>    
 </div>
